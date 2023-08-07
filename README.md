@@ -1,6 +1,8 @@
 # Cyclicity Analysis of Time-Series
 This repository contains a working implementation of Cyclicity Analysis, which is a pattern recognition technique for analyzing the leader follower dynamics of multiple time-series.
 
+Full documentation and an example Jupyter notebook are available in the [GitHub repository](https://github.com/vskaush2/cyclicityanalysis).
+
 ## Requirements
 Download [Python >=3.7](https://www.python.org/downloads/)
 
@@ -28,3 +30,12 @@ coom = COOM(lead_lag_df)
 leading_eigenvector = coom.get_leading_eigenvector()
 lead_lag_df , leading_eigenvector
  ```
+
+## References 
+
+* Cyclicity in Multivariate Time-series and Applications to Functional MRI data : [paper](https://ieeexplore.ieee.org/document/7798498)
+* Dissociating Tinnitus Patients from Healthy Controls using Resting-state Cyclicity Analysis and Clustering : [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6326732/)
+* Slow Cortical Waves through Cyclicity Analysis : [paper](https://www.biorxiv.org/content/10.1101/2021.05.16.444387v2.full)
+* Comparing Cyclicity Analysis With Pre-established Functional Connectivity Methods to Identify Individuals and Subject Groups Using Resting State fMRI : [paper](https://www.frontiersin.org/article/10.3389/fncom.2019.00094/full)
+
+
