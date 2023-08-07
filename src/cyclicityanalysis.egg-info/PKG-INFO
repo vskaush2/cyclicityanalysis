@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: cyclicityanalysis
-Version: 1.0.0
+Version: 1.0.1
 Summary: Performs Cyclicity Analysis on A Collection of Time-Series
 Author-email: Vivek Kaushik <vskaush2@illinois.edu>
 License: MIT
@@ -19,7 +19,7 @@ Download [Python >=3.7](https://www.python.org/downloads/)
 ## Installation
 
 ```bash
-pip3 install git+https://github.com/vskaush2/cyclicityanalysis
+pip3 install cyclicityanalysis
 ```
 
 ## Usage
