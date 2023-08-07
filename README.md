@@ -7,7 +7,7 @@ Download [Python >=3.7](https://www.python.org/downloads/)
 ## Installation
 
 ```bash
-pip3 install git+https://github.com/vskaush2/cyclicityanalysis
+pip3 install cyclicityanalysis
 ```
 
 ## Usage
