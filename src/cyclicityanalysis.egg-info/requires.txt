@@ -1,0 +1,10 @@
+numpy
+pandas
+matplotlib
+seaborn
+
+[optional_dependencies]
+pytest
+jupyter
+requests
+scipy
