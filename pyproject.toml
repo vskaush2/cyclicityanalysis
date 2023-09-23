@@ -7,14 +7,14 @@ name = "cyclicityanalysis"
 authors = [
     {name = "Vivek Kaushik", email = "vskaush2@illinois.edu"},
 ]
-version = "1.0.2"
+version = "1.0.3"
 description = "Performs Cyclicity Analysis on A Collection of Time-Series"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 license = {text = "MIT"}
 classifiers = ["Programming Language :: Python :: 3"]
 dependencies = ['numpy','pandas']
 
 
 [project.optional-dependencies]
-optional_dependencies = ['pytest','jupyter','requests','scipy']
+optional_dependencies = ['pytest','jupyter','requests','scipy','matplotlib','seaborn']

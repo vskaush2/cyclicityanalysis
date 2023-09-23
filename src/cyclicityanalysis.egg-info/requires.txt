@@ -6,3 +6,5 @@ pytest
 jupyter
 requests
 scipy
+matplotlib
+seaborn

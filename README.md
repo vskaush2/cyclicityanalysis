@@ -4,7 +4,7 @@ This repository contains a working implementation of Cyclicity Analysis, which i
 Full documentation and an example Jupyter notebook are available in the [GitHub repository](https://github.com/vskaush2/cyclicityanalysis).
 
 ## Requirements
-Download [Python >=3.7](https://www.python.org/downloads/)
+Download [Python >=3.10](https://www.python.org/downloads/)
 
 ## Installation
 
@@ -26,9 +26,11 @@ oa = OrientedArea(df)
 lead_lag_df = oa.compute_lead_lag_df()
 
 coom = COOM(lead_lag_df)
-# Returns leading eigenvector of lead lag matrix as a numpy array
-leading_eigenvector = coom.get_leading_eigenvector()
-lead_lag_df , leading_eigenvector
+
+# Returns leading eigenvector of the lead lag matrix as an array, the leading eigenvector component phases as an array,
+# and sequential order of the lead lag matrix according to COOM as a dictionary 
+leading_eigenvector, leading_eigenvector_component_phases, sequential_order_dict = coom.compute_sequential_order(0)
+lead_lag_df , leading_eigenvector, leading_eigenvector_component_phases, sequential_order_dict
  ```
 
 ## References 

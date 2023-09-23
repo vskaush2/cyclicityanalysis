@@ -6,7 +6,7 @@ This module fits the Chain of Offsets Model (COOM) on a skew-symmetric matrix
 
 import pandas as pd
 import numpy as np
-
+from typing import Tuple
 
 class COOM:
     """A class fitting Chain of Offsets Model (COOM) on a given skew-symmetric matrix
@@ -57,48 +57,28 @@ class COOM:
         self.eigenvalue_moduli = np.abs(self.eigenvalues)
         self.sorted_eigenvalue_indices = np.argsort(self.eigenvalue_moduli)[::-1]
 
-    def get_leading_eigenvector(self, n: int = 0) -> np.ndarray:
-        """Gets the eigenvector corresponding to (N-n)-th largest eigenvalue (in modulus)
+    def compute_sequential_order(self, n: int = 0) -> Tuple[np.ndarray, np.ndarray, dict]:
+        """Gets the eigenvector, eigenvector component phases, and sequential order corresponding to the (N-n)-th largest eigenvalue (in modulus)
         of `skew_symmetric_df`
 
         Args:
             n: An index between 0 and `N`-1 (inclusive). Default is 0
         Returns:
-            np.ndarray: The eigenvector corresponding to the (`N`-`n`)-th largest eigenvalue
-
+            (np.ndarray, np.ndarray, dict): A tuple of 3 elements.
+            The first element is an array consisting of the `N` complex components of the eigenvector corresponding to
+            the (`N`-n)-th largest eigenvalue (in modulus) of `skew_symmetric_df`.
+            The second element is an array of the eigenvector component phases.
+            The last element is a dictionary with keys being the sorted indices 0 , ... , `N`-1
+            according to the eigenvector phases they index
+            and values being the respective column names of `skew_symmetric_df` that the keys index
         """
         leading_eigenvector = self.eigenvectors[:, self.sorted_eigenvalue_indices[n]]
-        return leading_eigenvector
-
-    def compute_phases(self, v: np.ndarray) -> np.ndarray:
-        """Gets the phases of a given vector, which are the principal arguments of the vector's components
-
-        Args:
-            v: A vector with complex components
-
-        Returns:
-            np.ndarray: The phases
-
-        """
-        phases = np.angle(v)
-        phases = np.array([-phase if phase >= np.pi else phase for phase in phases])
-        return phases
-
-    def compute_sequential_order_dict(self, v: np.ndarray) -> dict:
-        """Computes the sequential order dictionary of a given vector according to COOM,
-        in which we sort the components of the vector by their phases in increasing order;
-        keys are the indices between 0 and `N`-1 sorted according to COOM
-        values are corresponding column names of `skew_symmetric_df` sorted according to COOM
-
-
-        Args:
-            v: A vector with complex components
-
-        Returns:
-            dict:  Sequential order dictionary
-        """
-        phases = self.compute_phases(v)
-        sequential_order_indices = np.argsort(phases)
+        leading_eigenvector_component_phases = np.angle(leading_eigenvector)
+        leading_eigenvector_component_phases = np.array([-phase if phase >= np.pi else phase for phase in leading_eigenvector_component_phases])
+        sequential_order_indices = np.argsort(leading_eigenvector_component_phases)
         sequential_order_columns = [self.columns[index] for index in sequential_order_indices]
         sequential_order_dict = dict(zip(sequential_order_indices, sequential_order_columns))
-        return sequential_order_dict
+
+        return leading_eigenvector, leading_eigenvector_component_phases, sequential_order_dict
+
+
