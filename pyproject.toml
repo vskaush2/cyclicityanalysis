@@ -16,5 +16,6 @@ classifiers = ["Programming Language :: Python :: 3"]
 dependencies = ['numpy','pandas']
 
 
+
 [project.optional-dependencies]
 optional_dependencies = ['pytest','jupyter','requests','scipy','matplotlib','seaborn']
