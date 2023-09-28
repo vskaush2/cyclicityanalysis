@@ -6,3 +6,8 @@
 
 - Fixed incorrect minimum Python version requirement
 - Simplified implementation to obtain COOM leading eigenvector
+
+## v1.0.5 (09/28/2023)
+
+- Fixed incorrect minimum Python version requirement
+- Simplified implementation to obtain COOM leading eigenvector

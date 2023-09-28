@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: cyclicityanalysis
-Version: 1.0.3
+Version: 1.0.5
 Summary: Performs Cyclicity Analysis on A Collection of Time-Series
 Author-email: Vivek Kaushik <vskaush2@illinois.edu>
 License: MIT
